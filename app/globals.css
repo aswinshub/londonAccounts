@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand palette */
+  --color-primary: #1f3a5f;
+  --color-secondary: #4a90e2;
+  --color-cta: #2e8b57;
+  --color-cta-hover: #26734a;
+
+  --color-background: #f8f9fa;
+  --color-card: #ffffff;
+
+  --color-heading: #1f2937;
+  --color-body: #4b5563;
+  --color-border: #e5e7eb;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid type scale */
+  --text-hero: clamp(2.5rem, 5vw, 3.5rem); /* up to 56px */
+  --text-hero--line-height: 1.1;
+  --text-section: clamp(2rem, 3.5vw, 2.5rem); /* up to 40px */
+  --text-section--line-height: 1.15;
+
+  /* Soft shadows */
+  --shadow-soft: 0 1px 2px rgba(16, 24, 40, 0.04),
+    0 8px 24px rgba(16, 24, 40, 0.06);
+  --shadow-soft-lg: 0 4px 8px rgba(16, 24, 40, 0.04),
+    0 16px 40px rgba(16, 24, 40, 0.1);
+
+  /* Radii */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/*
+ * Base element styles live in @layer base so Tailwind utility classes
+ * (e.g. `text-white` on a heading) can override them as expected.
+ */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--color-secondary);
+    color: #ffffff;
+  }
+
+  /* Focus visible ring for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Flowing connector line used in the process timeline */
+@keyframes flow-line {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+/* Continuously growing light ring for the primary navbar CTA */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 139, 87, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(46, 139, 87, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 139, 87, 0);
+  }
+}
+
+@utility animate-pulse-ring {
+  /*
+   * !important so this intentional CTA pulse still plays even when the
+   * global prefers-reduced-motion rule force-disables animations.
+   */
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /*
+   * The navbar CTA pulse is an intentional, subtle brand accent the client
+   * asked for, so keep it running. This class selector outranks the universal
+   * `*` reset above, so it wins even though both use !important.
+   */
+  .animate-pulse-ring {
+    animation-duration: 2s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
