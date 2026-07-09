@@ -136,6 +136,28 @@ html.lenis body {
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
 }
 
+.card-hover {
+  transform: translateY(0) !important;
+  translate: 0 0 !important;
+  will-change: transform, translate, box-shadow;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              translate 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) !important;
+  translate: 0 -6px !important;
+}
+
+/* Timeline group hover transition */
+.group:hover .card-hover {
+  transform: translateY(-4px) !important;
+  translate: 0 -4px !important;
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -14,7 +14,7 @@ export function ServiceCard({ service, href = "#contact" }: ServiceCardProps) {
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-soft transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-secondary/30 hover:shadow-soft-lg focus-visible:-translate-y-1.5"
+      className="group flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-soft card-hover hover:border-secondary/30 hover:shadow-soft-lg focus-visible:-translate-y-1.5"
     >
       <span className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/[0.06] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
         <Icon className="size-7" aria-hidden="true" />

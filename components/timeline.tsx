@@ -39,7 +39,7 @@ export function Timeline({ steps }: TimelineProps) {
             </div>
 
             {/* Icon + title */}
-            <div className="mt-6 -mx-4 rounded-2xl px-4 py-3 transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:bg-card group-hover:shadow-soft lg:mr-4">
+            <div className="mt-6 -mx-4 rounded-2xl px-4 py-3 card-hover group-hover:bg-card group-hover:shadow-soft lg:mr-4">
               <div className="flex items-center gap-2.5">
                 <Icon
                   className="size-5 shrink-0 text-secondary transition-transform duration-300 ease-out group-hover:scale-110"
