@@ -19,8 +19,8 @@ export default function HomePage() {
     <>
       <Hero />
       <WhyChooseUs />
-      <ServicesSection id="services" />
       <AboutSection id="about" />
+      <ServicesSection id="services" />
       <WhoWeHelp id="who-we-help" />
       <ProcessSection />
       <TestimonialsSection />
