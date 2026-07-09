@@ -161,8 +161,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "They took the stress out of my accounts completely. Every question is answered quickly and in plain English — I finally feel in control of my finances.",
-    image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80",
+    image: "",
   },
   {
     name: "James Okafor",
@@ -170,8 +169,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "Switching was the best decision we made. Proactive advice, always on time, and they genuinely care about how the business is doing.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    image: "",
   },
   {
     name: "Priya Sharma",
@@ -179,7 +177,30 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "Personal, responsive and reliable. It feels like having a finance director on the team without the overhead. I couldn't recommend them more highly.",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+    image: "",
+  },
+  {
+    name: "Marcus Vance",
+    business: "Vance Tech Solutions",
+    rating: 5,
+    quote:
+      "Responsive, professional, and knowledgeable. They've streamlined our payroll and tax compliance, saving us countless hours every month.",
+    image: "",
+  },
+  {
+    name: "Elena Rostova",
+    business: "Rostova Designs",
+    rating: 5,
+    quote:
+      "As a sole trader, I was overwhelmed by bookkeeping. They made it completely painless and explained everything in clear terms.",
+    image: "",
+  },
+  {
+    name: "David Beckett",
+    business: "Beckett & Sons Logistics",
+    rating: 5,
+    quote:
+      "Dependable statutory accounts and VAT support. They've been a key partner in our growth from a local firm to a city-wide operation.",
+    image: "",
   },
 ];

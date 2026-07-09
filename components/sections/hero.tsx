@@ -308,18 +308,7 @@ export function Hero() {
                   </div>
 
                   {/* Consent Check/Text */}
-                  <div className="py-0.5">
-                    <p className="text-[11px] leading-relaxed text-body/80">
-                      I accept the Terms and Conditions.{" "}
-                      <Link href="/privacy" className="text-[#e25c5c] hover:underline font-medium">
-                        Privacy Policy
-                      </Link>{" "}
-                      &{" "}
-                      <Link href="/terms" className="text-[#e25c5c] hover:underline font-medium">
-                        Terms & Conditions
-                      </Link>
-                    </p>
-                  </div>
+
 
                   {/* Submit Button */}
                   <button
