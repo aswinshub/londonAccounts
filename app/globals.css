@@ -110,11 +110,11 @@ html.lenis body {
 /* Flowing connector line used in the process timeline */
 @keyframes flow-line {
   from {
-    background-position: 200% 0;
+    background-position: 0% 0;
   }
 
   to {
-    background-position: 0% 0;
+    background-position: -200% 0;
   }
 }
 
@@ -139,6 +139,15 @@ html.lenis body {
    * global prefers-reduced-motion rule force-disables animations.
    */
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
+@utility dashed-mask {
+  mask-image: linear-gradient(to right, #000 8px, transparent 8px);
+  mask-size: 12px 100%;
+  mask-repeat: repeat-x;
+  -webkit-mask-image: linear-gradient(to right, #000 8px, transparent 8px);
+  -webkit-mask-size: 12px 100%;
+  -webkit-mask-repeat: repeat-x;
 }
 
 .card-hover {

@@ -19,23 +19,34 @@ export function Timeline({ steps }: TimelineProps) {
               <span className="relative z-10 inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary font-heading text-lg font-bold text-white transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-secondary group-hover:shadow-[0_0_0_8px_rgba(74,144,226,0.14)]">
                 {num}
               </span>
-              {!isLast && (
-                <span
-                  className="absolute top-6 left-6 hidden h-0.5 w-[calc(100%+2rem)] -translate-y-1/2 overflow-hidden rounded-full lg:block"
-                  aria-hidden="true"
-                >
-                  <span className="absolute inset-0 bg-border" />
+              <span
+                className="absolute top-6 left-6 hidden h-[2px] -translate-y-1/2 lg:block"
+                style={
+                  isLast
+                    ? {
+                        width: "120px",
+                        maskImage: "linear-gradient(to right, black 20%, transparent 100%)",
+                        WebkitMaskImage: "linear-gradient(to right, black 20%, transparent 100%)",
+                      }
+                    : {
+                        width: "calc(100% + 2rem)",
+                      }
+                }
+                aria-hidden="true"
+              >
+                <span className="absolute inset-0 dashed-mask">
+                  <span className="absolute inset-0 bg-border opacity-10" />
                   <span
-                    className="absolute inset-0 opacity-80"
+                    className="absolute inset-0"
                     style={{
                       backgroundImage:
-                        "linear-gradient(90deg, transparent 0%, transparent 25%, var(--color-secondary) 50%, transparent 75%, transparent 100%)",
+                        "linear-gradient(90deg, var(--color-secondary) 0%, var(--color-cta) 50%, var(--color-secondary) 100%)",
                       backgroundSize: "200% 100%",
-                      animation: "flow-line 2.4s linear infinite",
+                      animation: "flow-line 3s linear infinite",
                     }}
                   />
                 </span>
-              )}
+              </span>
             </div>
 
             {/* Icon + title */}
