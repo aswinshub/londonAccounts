@@ -4,8 +4,8 @@
   /* Brand palette */
   --color-primary: #1f3a5f;
   --color-secondary: #4a90e2;
-  --color-cta: #2e8b57;
-  --color-cta-hover: #26734a;
+  --color-cta: #36BC71;
+  --color-cta-hover: #35A868;
 
   --color-background: #f8f9fa;
   --color-card: #ffffff;
@@ -141,6 +141,24 @@ html.lenis body {
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
 }
 
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@utility animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
 @utility btn-cta-slide {
   background-image: linear-gradient(120deg, var(--color-cta-hover) 50%, var(--color-cta) 50%);
   background-size: 250% 100%;
@@ -231,11 +249,12 @@ html.lenis body {
   }
 
   /*
-   * The navbar CTA pulse is an intentional, subtle brand accent the client
-   * asked for, so keep it running. This class selector outranks the universal
+   * The navbar CTA pulse and WhatsApp pulse are intentional, subtle brand accents the client
+   * asked for, so keep them running. This class selector outranks the universal
    * `*` reset above, so it wins even though both use !important.
    */
-  .animate-pulse-ring {
+  .animate-pulse-ring,
+  .animate-whatsapp-pulse {
     animation-duration: 2s !important;
     animation-iteration-count: infinite !important;
   }
