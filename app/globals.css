@@ -19,7 +19,7 @@
   --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
   /* Fluid type scale */
-  --text-hero: clamp(2.5rem, 5vw, 3.5rem);
+  --text-hero: clamp(2.25rem, 4.5vw, 3rem);
   /* up to 56px */
   --text-hero--line-height: 1.1;
   --text-section: clamp(2rem, 3.5vw, 2.5rem);
