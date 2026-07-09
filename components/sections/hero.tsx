@@ -12,17 +12,64 @@ import { fadeIn, slideUp } from "@/lib/motion";
 import { TRUST_BADGES } from "@/constants/content";
 import { CONSULTATION_HREF } from "@/constants/site";
 
-const PHRASES = ["Small Businesses", "Sole Traders", "Limited Companies"];
+const PHRASES = ["Small Businesses", "Sole Traders", "Limited Companies"] as const;
+
+const TYPE_MS = 55;
+const DELETE_MS = 40;
+const PAUSE_MS = 1800;
 
 export function Hero() {
-  const [index, setIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % PHRASES.length);
-    }, 3000); // 3 seconds pause interval
+    let cancelled = false;
+    let phraseIndex = 0;
+    let visibleLength = 0;
+    let deleting = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-    return () => clearInterval(interval);
+    const schedule = (delay: number, fn: () => void) => {
+      timeoutId = setTimeout(() => {
+        if (!cancelled) fn();
+      }, delay);
+    };
+
+    const tick = () => {
+      const phrase = PHRASES[phraseIndex];
+
+      if (!deleting) {
+        if (visibleLength < phrase.length) {
+          visibleLength += 1;
+          setDisplayedText(phrase.slice(0, visibleLength));
+          schedule(TYPE_MS, tick);
+          return;
+        }
+
+        schedule(PAUSE_MS, () => {
+          deleting = true;
+          tick();
+        });
+        return;
+      }
+
+      if (visibleLength > 0) {
+        visibleLength -= 1;
+        setDisplayedText(phrase.slice(0, visibleLength));
+        schedule(DELETE_MS, tick);
+        return;
+      }
+
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % PHRASES.length;
+      tick();
+    };
+
+    tick();
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -50,30 +97,12 @@ export function Hero() {
                     <span className="invisible pointer-events-none select-none py-1.5 pr-2" aria-hidden="true">
                       Limited Companies
                     </span>
-                    {/* Sliding transition elements */}
                     <span className="absolute inset-0 flex items-center justify-start overflow-hidden">
-                      {PHRASES.map((phrase, i) => {
-                        const isActive = i === index;
-                        const isNext = i === (index + 1) % PHRASES.length;
-                        const positionClass = isActive
-                          ? "translate-y-0 opacity-100"
-                          : isNext
-                          ? "translate-y-full opacity-0"
-                          : "-translate-y-full opacity-0";
-
-                        return (
-                          <span
-                            key={phrase}
-                            className="absolute inset-y-0 left-0 flex items-center justify-start"
-                          >
-                            <span
-                              className={`inline-flex items-center bg-[#EAF8EE] text-[#2e8b57] py-1.5 pr-2 transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[transform,opacity] ${positionClass}`}
-                            >
-                              {phrase}
-                            </span>
-                          </span>
-                        );
-                      })}
+                      <span className="absolute inset-y-0 left-0 flex items-center justify-start">
+                        <span className="inline-flex items-center bg-[#EAF8EE] text-[#2e8b57] py-1.5 pr-2">
+                          {displayedText}
+                        </span>
+                      </span>
                     </span>
                   </span>
                 </span>
