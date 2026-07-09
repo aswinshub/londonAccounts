@@ -10,6 +10,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { fadeIn, slideUp } from "@/lib/motion";
 import { TRUST_BADGES } from "@/constants/content";
 import { CONSULTATION_HREF } from "@/constants/site";
+import { AccountingBg } from "./accounting-bg";
 
 const PHRASES = ["Small Businesses", "Sole Traders", "Limited Companies"] as const;
 
@@ -94,14 +95,9 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden pt-6 pb-20 sm:pt-8 lg:pt-12 lg:pb-28"
-      style={{
-        backgroundImage: "url('/herobg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="relative overflow-hidden pt-6 pb-20 sm:pt-8 lg:pt-12 lg:pb-28 hero-bg"
     >
+      <AccountingBg />
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column (Text & CTAs) */}

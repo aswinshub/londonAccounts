@@ -308,3 +308,17 @@ html.lenis body {
 .animate-marquee:hover * {
   animation-play-state: paused !important;
 }
+
+.hero-bg {
+  background-color: var(--color-background);
+  background-image: radial-gradient(ellipse at top right, rgba(74, 144, 226, 0.08), transparent 60%);
+}
+
+@media (min-width: 1024px) {
+  .hero-bg {
+    background-image: url('/herobg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
