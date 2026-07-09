@@ -124,7 +124,7 @@ export function Hero() {
                     </span>
                     <span className="absolute inset-0 flex items-center justify-start overflow-hidden">
                       <span className="absolute inset-y-0 left-0 flex items-center justify-start">
-                        <span className="inline-flex items-center bg-[#EAF8EE] text-[#2e8b57] py-1.5 pr-2 rounded-lg">
+                        <span className="inline-flex items-center bg-[#EAF8EE]/50 text-[#2e8b57] py-1.5 pr-2 rounded-lg">
                           {displayedText}
                         </span>
                       </span>
@@ -135,9 +135,8 @@ export function Hero() {
             </Reveal>
 
             <Reveal variants={fadeIn} delay={0.1} className="mt-6">
-              <p className="max-w-xl text-base leading-relaxed text-body sm:text-lg">
-                Supporting sole traders and limited companies across London with
-                responsive, personal accounting services you can trust.
+              <p className="max-w-md text-base leading-relaxed text-body sm:text-lg">
+                Trusted accounting for sole traders and small businesses across London.
               </p>
             </Reveal>
 
@@ -152,12 +151,12 @@ export function Hero() {
               >
                 Book a Free Consultation
               </Link>
-              <Link
+              {/* <Link
                 href="#services"
                 className={buttonVariants({ variant: "outline", size: "lg" })}
               >
                 Our Services
-              </Link>
+              </Link> */}
             </Reveal>
 
             <Reveal
@@ -168,7 +167,7 @@ export function Hero() {
               {TRUST_BADGES.map((badge) => (
                 <span
                   key={badge.label}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#EAF8EE] text-[#2e8b57] px-3.5 py-1 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#EAF8EE]/50 border border-[#2e8b57]/20 text-[#2e8b57] px-3.5 py-1 text-sm font-semibold"
                 >
                   <span className="inline-flex size-4.5 items-center justify-center rounded-full bg-[#2e8b57]/15 text-[#2e8b57]">
                     <Check className="size-3" aria-hidden="true" />
@@ -182,7 +181,7 @@ export function Hero() {
           {/* Right Column (Consultation Form Card) */}
           <Reveal variants={fadeIn} delay={0.15} className="relative w-full max-w-sm lg:ml-auto">
             {/* Stats Card positioned left of the form (no overlap) */}
-            <div className="absolute bottom-12 -left-[210px] z-20 hidden lg:block rounded-2xl border border-border bg-card p-5 shadow-soft-lg max-w-fit">
+            <div className="absolute top-12 -left-[210px] z-20 hidden lg:block rounded-2xl border border-border bg-card p-5 shadow-soft-lg max-w-fit">
               <p className="font-heading text-3xl font-extrabold text-primary">
                 100+
               </p>
@@ -240,8 +239,8 @@ export function Hero() {
                         onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
                         className="appearance-none bg-transparent pr-5 text-sm font-medium text-heading focus:outline-none cursor-pointer"
                       >
-                        <option value="+91">🇮🇳 +91</option>
                         <option value="+44">🇬🇧 +44</option>
+                        <option value="+91">🇮🇳 +91</option>
                         <option value="+1">🇺🇸 +1</option>
                       </select>
                       <span className="absolute right-2 pointer-events-none text-body/40">
@@ -287,12 +286,13 @@ export function Hero() {
                       className="appearance-none block w-full px-4 py-2.5 text-sm border border-border rounded-xl bg-transparent text-heading focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary cursor-pointer transition-colors"
                       required
                     >
-                      <option value="" disabled>What is your company's annual turnover?</option>
-                      <option value="under-50k">Under £50k</option>
-                      <option value="50k-100k">£50k - £100k</option>
-                      <option value="100k-250k">£100k - £250k</option>
-                      <option value="250k-500k">£250k - £500k</option>
-                      <option value="over-500k">Over £500k</option>
+                      <option value="" disabled>What is your company's monthly turnover?</option>
+                      <option value="under-2k">Under £2,000</option>
+                      <option value="2k-5k">£2,000 - £5,000</option>
+                      <option value="5k-10k">£5,000 - £10,000</option>
+                      <option value="10k-25k">£10,000 - £25,000</option>
+                      <option value="25k-40k">£25,000 - £40,000</option>
+                      <option value="over-40k">Over £40,000</option>
                     </select>
                     <span className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-body/40">
                       <ChevronDown className="size-4" />
@@ -327,7 +327,7 @@ export function Hero() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-2.5 px-4 bg-[#45a875] hover:bg-[#388e60] text-white font-bold rounded-xl shadow-soft transition-colors cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full py-2.5 px-4 btn-cta-slide text-white font-bold rounded-xl shadow-soft transition-all duration-300 ease-out hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-60 cursor-pointer flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>

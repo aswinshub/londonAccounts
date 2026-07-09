@@ -141,6 +141,17 @@ html.lenis body {
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
 }
 
+@utility btn-cta-slide {
+  background-image: linear-gradient(120deg, var(--color-cta-hover) 50%, var(--color-cta) 50%);
+  background-size: 250% 100%;
+  background-position: 100% 0%;
+  transition: background-position 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+
+  &:hover {
+    background-position: 0% 0%;
+  }
+}
+
 @utility dashed-mask {
   mask-image: linear-gradient(to right, #000 8px, transparent 8px);
   mask-size: 12px 100%;

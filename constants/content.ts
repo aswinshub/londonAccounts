@@ -28,7 +28,7 @@ import type {
 } from "@/types";
 
 export const TRUST_BADGES: TrustBadge[] = [
-  { label: "Reliable Advice" },
+
   { label: "Fast Response" },
   { label: "Personal Service" },
 ];
