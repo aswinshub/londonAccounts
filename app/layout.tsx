@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { getLocalBusinessJsonLd } from "@/lib/seo";
 import { SITE } from "@/constants/site";
 
@@ -74,6 +75,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SmoothScroll />
+        <ScrollToTop />
         <Navbar />
         <main id="main-content" className="flex-1">
           {children}

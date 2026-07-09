@@ -8,7 +8,7 @@ export function FeatureCard({ feature }: FeatureCardProps) {
   const { title, description, icon: Icon } = feature;
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-soft transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-soft-lg">
+    <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-soft card-hover hover:shadow-soft-lg">
       <span className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
         <Icon className="size-7" aria-hidden="true" />
       </span>

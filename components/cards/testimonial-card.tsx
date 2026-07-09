@@ -11,7 +11,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { name, business, quote, rating, image } = testimonial;
 
   return (
-    <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-soft transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-soft-lg">
+    <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-soft card-hover hover:shadow-soft-lg">
       <div
         className="flex items-center gap-1"
         aria-label={`Rated ${rating} out of 5 stars`}

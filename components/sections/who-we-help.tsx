@@ -69,7 +69,7 @@ export function WhoWeHelp({ id, className }: WhoWeHelpProps) {
         <RevealGroup className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
           {AUDIENCES.map(({ title, description, icon: Icon }) => (
             <RevealItem key={title} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-card p-8 shadow-soft-lg transition-all duration-300 ease-out hover:-translate-y-1.5">
+              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-card p-8 shadow-soft-lg card-hover">
                 <span className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/6 text-primary">
                   <Icon className="size-7" aria-hidden="true" />
                 </span>
