@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Manrope, Caveat } from "next/font/google";
 
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
@@ -18,6 +18,12 @@ const inter = Inter({
 
 const manrope = Manrope({
   variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   display: "swap",
 });
@@ -59,7 +65,7 @@ export default function RootLayout({
     <html
       lang="en-GB"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${manrope.variable} h-full scroll-smooth`}
+      className={`${inter.variable} ${manrope.variable} ${caveat.variable} h-full scroll-smooth`}
     >
       <body className="flex min-h-full flex-col bg-background">
         <script

@@ -17,6 +17,7 @@
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: var(--font-caveat), cursive;
 
   /* Fluid type scale */
   --text-hero: clamp(2.25rem, 4.5vw, 3rem);
@@ -177,6 +178,11 @@ html.lenis body {
   -webkit-mask-image: linear-gradient(to right, #000 8px, transparent 8px);
   -webkit-mask-size: 12px 100%;
   -webkit-mask-repeat: repeat-x;
+}
+
+@utility bg-lined-paper {
+  background-image: linear-gradient(to bottom, rgba(229, 231, 235, 0.4) 1px, transparent 1px);
+  background-size: 100% 48px;
 }
 
 .card-hover {
