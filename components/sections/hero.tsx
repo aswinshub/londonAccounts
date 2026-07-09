@@ -240,8 +240,6 @@ export function Hero() {
                         className="appearance-none bg-transparent pr-5 text-sm font-medium text-heading focus:outline-none cursor-pointer"
                       >
                         <option value="+44">🇬🇧 +44</option>
-                        <option value="+91">🇮🇳 +91</option>
-                        <option value="+1">🇺🇸 +1</option>
                       </select>
                       <span className="absolute right-2 pointer-events-none text-body/40">
                         <ChevronDown className="size-3" />

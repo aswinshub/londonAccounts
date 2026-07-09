@@ -57,7 +57,7 @@ export function ScrollToTop() {
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-          className="fixed right-6 bottom-6 z-40 flex size-12 items-center justify-center rounded-full bg-card text-primary shadow-soft hover:shadow-soft-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 border border-border/40"
+          className="fixed right-6 bottom-24 z-40 flex size-12 items-center justify-center rounded-full bg-card text-primary shadow-soft hover:shadow-soft-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 border border-border/40"
           aria-label="Scroll to top"
         >
           {/* SVG Progress Ring */}

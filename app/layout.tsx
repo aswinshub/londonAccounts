@@ -6,6 +6,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 import { getLocalBusinessJsonLd } from "@/lib/seo";
 import { SITE } from "@/constants/site";
 
@@ -76,6 +77,7 @@ export default function RootLayout({
         </a>
         <SmoothScroll />
         <ScrollToTop />
+        <WhatsAppButton />
         <Navbar />
         <main id="main-content" className="flex-1">
           {children}

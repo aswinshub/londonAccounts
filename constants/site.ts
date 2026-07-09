@@ -25,6 +25,7 @@ export const SITE = {
     linkedin: "https://www.linkedin.com/company/london-accounts",
     twitter: "https://twitter.com/londonaccounts",
     facebook: "https://www.facebook.com/londonaccounts",
+    whatsapp: "https://wa.me/442079460123?text=Hi%20London%20Accounts%2c%20I%27d%20like%20to%20ask%20about%20your%20accounting%20services.",
   },
 } as const;
 

@@ -3,12 +3,13 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/logo";
-import { LinkedInIcon, XIcon, FacebookIcon } from "@/components/icons/social";
+import { LinkedInIcon, XIcon, FacebookIcon, WhatsAppIcon } from "@/components/icons/social";
 import { NAV_ITEMS } from "@/constants/navigation";
 import { SERVICES } from "@/constants/content";
 import { SITE } from "@/constants/site";
 
 const SOCIALS = [
+  { label: "WhatsApp", href: SITE.social.whatsapp, icon: WhatsAppIcon },
   { label: "LinkedIn", href: SITE.social.linkedin, icon: LinkedInIcon },
   { label: "X (Twitter)", href: SITE.social.twitter, icon: XIcon },
   { label: "Facebook", href: SITE.social.facebook, icon: FacebookIcon },
@@ -121,7 +122,17 @@ export function Footer() {
           <p>
             &copy; {year} {SITE.legalName}. All rights reserved.
           </p>
-          <p>Registered in England &amp; Wales.</p>
+          <p>
+            Designed and developed By{" "}
+            <a
+              href="https://aswinp-beta-sage.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary hover:underline"
+            >
+              ASWIN
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
