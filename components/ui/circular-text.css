@@ -1,0 +1,42 @@
+.circular-text {
+  margin: 0 auto;
+  border-radius: 50%;
+  width: var(--size, 200px);
+  height: var(--size, 200px);
+  position: relative;
+  font-weight: bold;
+  color: currentColor;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  font-family: var(--font-heading);
+
+  /* Premium Glassmorphism Badge Design */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(31, 58, 95, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(31, 58, 95, 0.15), 0 1px 3px rgba(31, 58, 95, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circular-text:hover {
+  border-color: rgba(31, 58, 95, 0.2);
+  box-shadow: 0 20px 40px -15px rgba(31, 58, 95, 0.25), 0 2px 6px rgba(31, 58, 95, 0.08);
+}
+
+.circular-text span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: var(--font-size, 24px);
+  padding-top: var(--padding-top, 12px);
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+}
