@@ -56,22 +56,39 @@ export function Navbar() {
 
           {/* Desktop nav */}
           <ul className="hidden items-center gap-1 lg:flex">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  className={cn(
-                    "rounded-full px-4 py-2 text-[15px] font-medium transition-colors duration-200",
-                    isActive(item.href)
-                      ? "text-primary"
-                      : "text-body hover:text-primary",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const active =
+                isActive(item.href) ||
+                (item.href === "#home" && pathname === "/");
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "group relative rounded-full px-4 py-2 text-[15px] font-medium transition-colors duration-200",
+                      active
+                        ? "text-primary"
+                        : "text-body hover:text-primary",
+                    )}
+                  >
+                    <span className="nav-link-flip">
+                      <span className="nav-link-flip-primary">{item.label}</span>
+                      <span className="nav-link-flip-secondary" aria-hidden="true">
+                        {item.label}
+                      </span>
+                    </span>
+                    <span
+                      className={cn(
+                        "absolute bottom-1 left-4 right-4 h-px bg-primary/50 origin-left transition-transform duration-[350ms] ease-[cubic-bezier(0.22, 1, 0.36, 1)]",
+                        active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      )}
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="hidden lg:block">
