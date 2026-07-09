@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
@@ -9,7 +12,19 @@ import { fadeIn, slideUp } from "@/lib/motion";
 import { TRUST_BADGES } from "@/constants/content";
 import { CONSULTATION_HREF } from "@/constants/site";
 
+const PHRASES = ["Small Businesses", "Sole Traders", "Limited Companies"];
+
 export function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % PHRASES.length);
+    }, 3000); // 3 seconds pause interval
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
@@ -26,8 +41,42 @@ export function Hero() {
             </Reveal>
 
             <Reveal variants={slideUp} className="mt-6">
-              <h1 className="text-[length:var(--text-hero)] leading-[var(--text-hero--line-height)] font-extrabold text-heading text-balance">
-                Reliable Accounting for Growing Small Businesses
+              <h1 className="text-[length:var(--text-hero)] leading-[var(--text-hero--line-height)] font-extrabold text-heading">
+                <span className="block">Reliable Accounting</span>
+                <span className="block mt-1">for Growing</span>
+                <span className="mt-4 block w-fit">
+                  <span className="relative inline-flex items-center justify-start">
+                    {/* Reserved space for the longest phrase to prevent layout shifts */}
+                    <span className="invisible pointer-events-none select-none py-1.5 pr-2" aria-hidden="true">
+                      Limited Companies
+                    </span>
+                    {/* Sliding transition elements */}
+                    <span className="absolute inset-0 flex items-center justify-start overflow-hidden">
+                      {PHRASES.map((phrase, i) => {
+                        const isActive = i === index;
+                        const isNext = i === (index + 1) % PHRASES.length;
+                        const positionClass = isActive
+                          ? "translate-y-0 opacity-100"
+                          : isNext
+                          ? "translate-y-full opacity-0"
+                          : "-translate-y-full opacity-0";
+
+                        return (
+                          <span
+                            key={phrase}
+                            className="absolute inset-y-0 left-0 flex items-center justify-start"
+                          >
+                            <span
+                              className={`inline-flex items-center bg-[#EAF8EE] text-[#2e8b57] py-1.5 pr-2 transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[transform,opacity] ${positionClass}`}
+                            >
+                              {phrase}
+                            </span>
+                          </span>
+                        );
+                      })}
+                    </span>
+                  </span>
+                </span>
               </h1>
             </Reveal>
 
