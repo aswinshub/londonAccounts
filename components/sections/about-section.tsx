@@ -9,6 +9,7 @@ import { StatsCard } from "@/components/cards/stats-card";
 import { fadeIn } from "@/lib/motion";
 import { STATS } from "@/constants/content";
 import { CONSULTATION_HREF } from "@/constants/site";
+import CircularText from "@/components/ui/circular-text";
 
 const HIGHLIGHTS = [
   "A small, dedicated team who know you by name",
@@ -28,6 +29,23 @@ export function AboutSection({ id, showCta = true }: AboutSectionProps) {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal variants={fadeIn} className="relative order-last lg:order-first">
+            <div className="absolute -top-6 left-4 sm:-top-8 sm:-left-6 md:-top-10 md:-left-10 z-10">
+              <CircularText
+                text="EXPERIENCED • ACCOUNTS • TEAM • "
+                spinDuration={25}
+                onHover="speedUp"
+                className="text-primary hover:text-secondary transition-colors duration-300"
+                style={{
+                  "--size": "140px",
+                  "--font-size": "13px",
+                  "--padding-top": "10px",
+                } as React.CSSProperties}
+              >
+                <div className="absolute inset-0 m-auto size-11 rounded-full bg-primary flex items-center justify-center text-white text-[9px] font-black tracking-wider uppercase font-heading shadow-inner">
+                  LA
+                </div>
+              </CircularText>
+            </div>
             <Image
               src="/about-us.png"
               alt="Accountant working on a laptop with financial charts and analytics"
