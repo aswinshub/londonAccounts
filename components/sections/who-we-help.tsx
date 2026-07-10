@@ -9,6 +9,12 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { AUDIENCES } from "@/constants/content";
 import { cn } from "@/lib/utils";
 
+const AUDIENCE_IMAGES: Record<string, string> = {
+  "Sole Traders": "/solo.jpg",
+  "Limited Companies": "/limited compnay.jpg",
+  "Growing Businesses": "/Growing business.jpg",
+};
+
 interface WhoWeHelpProps {
   id?: string;
   className?: string;
@@ -49,7 +55,7 @@ export function WhoWeHelp({ id, className }: WhoWeHelpProps) {
           />
         </motion.div>
         {/* Navy overlay keeps foreground text and cards readable */}
-        <div className="absolute inset-0 bg-primary/85" />
+        <div className="absolute inset-0 bg-black/85" />
       </div>
 
       <Container className="relative">
@@ -67,17 +73,35 @@ export function WhoWeHelp({ id, className }: WhoWeHelpProps) {
         </Reveal>
 
         <RevealGroup className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {AUDIENCES.map(({ title, description, icon: Icon }) => (
-            <RevealItem key={title} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-card p-8 shadow-soft-lg card-hover">
-                <span className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/6 text-primary">
-                  <Icon className="size-7" aria-hidden="true" />
-                </span>
-                <h3 className="text-xl font-bold text-heading">{title}</h3>
-                <p className="mt-3 leading-relaxed text-body">{description}</p>
-              </div>
-            </RevealItem>
-          ))}
+          {AUDIENCES.map(({ title, description, icon: Icon }) => {
+            const bgImage = AUDIENCE_IMAGES[title];
+            return (
+              <RevealItem key={title} className="h-full">
+                <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-white/20 p-8 shadow-soft-lg card-hover hover:border-white/45">
+                  {/* Background Image layer */}
+                  {bgImage && (
+                    <div className="absolute inset-0 -z-20 h-full w-full">
+                      <Image
+                        src={bgImage}
+                        alt={title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  )}
+                  {/* Dark overlay for readability */}
+                  <div className="absolute inset-0 -z-10 bg-black/75 transition-colors duration-300 group-hover:bg-black/70" />
+
+                  <span className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-white/10 text-white transition-colors duration-300 group-hover:bg-cta group-hover:text-white">
+                    <Icon className="size-7" aria-hidden="true" />
+                  </span>
+                  <h3 className="text-xl font-bold text-white">{title}</h3>
+                  <p className="mt-3 leading-relaxed text-white/80">{description}</p>
+                </div>
+              </RevealItem>
+            );
+          })}
         </RevealGroup>
       </Container>
     </section>

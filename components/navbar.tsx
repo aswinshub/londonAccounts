@@ -12,6 +12,7 @@ import { Logo } from "@/components/logo";
 import { useScrolled } from "@/hooks/use-scroll-position";
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS } from "@/constants/navigation";
+
 import { CONSULTATION_HREF } from "@/constants/site";
 
 export function Navbar() {
