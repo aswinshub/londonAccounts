@@ -42,11 +42,11 @@ export function FeatureCard({ feature, index }: FeatureCardProps) {
       <div className="absolute top-[32px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none drop-shadow-[0_8px_5px_rgba(0,0,0,0.15)] transition-transform duration-300">
         <Image
           src={config.pinSrc}
-          width={48}
-          height={48}
+          width={330}
+          height={323}
           alt={`${title} pin`}
           className="object-contain"
-          style={{ width: "auto", height: "auto" }}
+          style={{ width: "48px", height: "auto" }}
         />
       </div>
 

@@ -30,17 +30,14 @@ export function Footer() {
               traders and limited companies across London.
             </p>
             <div className="mt-6 flex gap-3">
-              {SOCIALS.map(({ label, href, icon: Icon }) => (
-                <a
+              {SOCIALS.map(({ label, icon: Icon }) => (
+                <div
                   key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="inline-flex size-10 items-center justify-center rounded-xl border border-border text-body transition-colors hover:border-primary/30 hover:text-primary"
+                  className="inline-flex size-10 items-center justify-center rounded-xl border border-border text-body"
                 >
                   <Icon className="size-5" aria-hidden="true" />
-                </a>
+                </div>
               ))}
             </div>
           </div>
